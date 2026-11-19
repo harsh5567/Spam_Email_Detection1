@@ -21,55 +21,99 @@ except Exception as e:
     st.error(f"Model loading failed: {e}")
     st.stop()
 
+
 # Custom CSS
 st.markdown("""
 <style>
 .stApp {
     background: linear-gradient(135deg, #0b1120, #111b32);
-    color: white;
+    color: #ffffff;
 }
+
 .block-container {
     padding-top: 2rem;
     max-width: 1200px;
 }
+
 .hero {
     background: linear-gradient(120deg, #202e52, #49347c);
     padding: 30px;
     border-radius: 20px;
     margin-bottom: 25px;
 }
+
 .hero h1 {
     color: white;
     font-size: 38px;
 }
+
 .hero p {
     color: #d5d9ed;
 }
+
+/* Input labels */
+.stTextInput label,
+.stTextArea label,
+.stSelectbox label {
+    color: #e2e8f0 !important;
+    font-weight: 600 !important;
+}
+
+/* Input fields */
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #ffffff !important;
+    color: #172033 !important;
+    border-radius: 10px !important;
+}
+
+/* Text inside email content */
+.stTextArea textarea {
+    color: #172033 !important;
+    -webkit-text-fill-color: #172033 !important;
+}
+
+/* Dropdown text */
+.stSelectbox div[data-baseweb="select"] * {
+    color: #172033 !important;
+}
+
+/* Analyze button */
+.stFormSubmitButton button {
+    background: linear-gradient(90deg, #6554d9, #9671ee) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    min-height: 48px;
+    width: 100%;
+}
+
+.stFormSubmitButton button p {
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* Result cards */
 .result {
     padding: 25px;
     border-radius: 16px;
     text-align: center;
     margin-top: 20px;
 }
+
 .safe {
     background: #123c35;
     border: 1px solid #20b486;
 }
+
 .danger {
     background: #49232f;
     border: 1px solid #ef6478;
 }
-div.stButton > button {
-    background: linear-gradient(90deg, #6554d9, #9671ee);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    height: 48px;
-    font-weight: bold;
-    width: 100%;
-}
 </style>
 """, unsafe_allow_html=True)
+
 
 # Sidebar
 with st.sidebar:
