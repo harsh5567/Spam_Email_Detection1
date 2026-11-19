@@ -1,4 +1,5 @@
 
+
 import streamlit as st
 import joblib
 
@@ -43,7 +44,6 @@ st.markdown("""
 }
 .hero p {
     color: #d5d9ed;
-    font-size: 16px;
 }
 .result {
     padding: 25px;
@@ -68,10 +68,6 @@ div.stButton > button {
     font-weight: bold;
     width: 100%;
 }
-div.stButton > button:hover {
-    border: 1px solid white;
-    color: white;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -80,11 +76,12 @@ with st.sidebar:
     st.title("🛡️ SpamGuard AI")
     st.caption("Intelligent Email Security")
     st.divider()
+
     st.subheader("About Project")
-    st.write("Machine Learning based email spam detection system.")
+    st.write("Machine Learning based email spam detection.")
     st.write("**Algorithm:** Logistic Regression")
     st.write("**Text Processing:** TF-IDF")
-    st.write("**Model:** Trained Spam Detection Pipeline")
+
     st.divider()
     st.caption("Developed by Harsh Tiwari | Harsh Pandey")
 
@@ -96,56 +93,66 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Sample emails
+# Sample email data
+sample_data = {
+    "Spam Email Example": (
+        "offers@gmail.com",
+        "You won a free iPhone!",
+        "Congratulations! You have won a free iPhone. Click here to claim your prize now. Limited time offer!"
+    ),
+
+    "Not Spam Email Example": (
+        "teacher@college.edu",
+        "Assignment submission confirmation",
+        "Hello, your assignment has been received successfully. Thank you for submitting it before the deadline."
+    )
+}
+
+# Function to load sample email
+def load_sample():
+    selected = st.session_state.sample
+
+    if selected in sample_data:
+        sender, subject, body = sample_data[selected]
+
+        st.session_state.sender = sender
+        st.session_state.subject = subject
+        st.session_state.email_text = body
+
+# Email Analyzer
 st.subheader("📧 Email Analyzer")
-sample = st.selectbox(
+
+st.selectbox(
     "Try an example email",
     [
         "Choose an example",
         "Spam Email Example",
         "Not Spam Email Example"
-    ]
+    ],
+    key="sample",
+    on_change=load_sample
 )
 
-sample_data = {
-    "Spam Email Example": (
-        "offers@gmail.com",
-        "You won a free iPhone!",
-        "Congratulations! Click here to claim your free prize now."
-    ),
-    "Not Spam Email Example": (
-        "teacher@college.edu",
-        "Assignment submission",
-        "Your assignment has been received successfully. Thank you."
-    )
-}
-
-default_sender, default_subject, default_body = sample_data.get(
-    sample, ("", "", "")
-)
-
-# Input section
+# Email input form
 with st.form("email_form"):
+
     col1, col2 = st.columns(2)
 
     with col1:
         sender = st.text_input(
             "👤 Sender Email",
-            value=default_sender,
-            placeholder="example@gmail.com"
+            key="sender"
         )
 
     with col2:
         subject = st.text_input(
             "📝 Email Subject",
-            value=default_subject,
-            placeholder="Enter email subject"
+            key="subject"
         )
 
     email_text = st.text_area(
         "✉️ Email Content",
-        value=default_body,
-        placeholder="Paste your complete email content here...",
+        key="email_text",
         height=180
     )
 
@@ -158,16 +165,17 @@ if submitted:
         st.warning("Please fill all three fields.")
 
     else:
-        # Combine inputs in the same order used during training
+        # Combine all inputs
         new_email = sender + " " + subject + " " + email_text
 
+        # Predict email
         prediction = model.predict([new_email])[0]
-        prediction_label = str(prediction).strip().lower()
 
         st.divider()
         st.subheader("📊 Analysis Result")
 
-        if prediction_label == "spam":
+        if str(prediction).strip().lower() == "spam":
+
             st.markdown("""
             <div class="result danger">
                 <h1>🚨 SPAM EMAIL</h1>
@@ -176,6 +184,7 @@ if submitted:
             """, unsafe_allow_html=True)
 
         else:
+
             st.markdown("""
             <div class="result safe">
                 <h1>✅ NOT SPAM</h1>
@@ -183,27 +192,30 @@ if submitted:
             </div>
             """, unsafe_allow_html=True)
 
-        # Show model probability if available
+        # Prediction probability
         if hasattr(model, "predict_proba"):
+
             probabilities = model.predict_proba([new_email])[0]
             classes = list(model.classes_)
-            predicted_index = classes.index(prediction)
-            probability = float(probabilities[predicted_index])
+
+            index = classes.index(prediction)
+            probability = float(probabilities[index])
 
             st.metric(
-                "Model Prediction Probability",
+                "Prediction Probability",
                 f"{probability * 100:.2f}%"
             )
+
             st.progress(probability)
 
         st.caption(
-            "Note: Predictions are based on the trained dataset. "
-            "Always verify suspicious emails before clicking links."
+            "Note: Predictions depend on the trained dataset. "
+            "Always verify suspicious emails."
         )
 
 # Footer
 st.divider()
-st.caption(
-    "SpamGuard AI | Built with Python, Streamlit, TF-IDF and Logistic Regression"
-)
 
+st.caption(
+    "SpamGuard AI | Python | Streamlit | TF-IDF | Logistic Regression"
+)
