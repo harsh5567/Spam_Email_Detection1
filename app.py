@@ -13,28 +13,63 @@ st.set_page_config(page_title="Spam Email Detector", page_icon="📧", layout="w
 
 STYLE = """
 <style>
-.stApp {background: radial-gradient(circle at top, #17213d 0%, #070a12 60%); color: #e8f1ff;}
+/* Background */
+.stApp {background: radial-gradient(circle at top, #17213d 0%, #070a12 60%); color: #f2f7ff;}
 [data-testid="stHeader"] {background: transparent;}
+[data-testid="stSidebar"] {background: #0b1120; border-right: 1px solid #00d9ff55;}
+
+/* All normal text light */
+.stApp h1, .stApp h2, .stApp h3, .stApp p, .stApp label, .stApp li, .stApp small,
+[data-testid="stWidgetLabel"] p, [data-testid="stMarkdownContainer"],
+[data-testid="stCaptionContainer"], [data-testid="stMetricValue"],
+[data-testid="stSliderTickBarMin"], [data-testid="stSliderTickBarMax"] {color: #f2f7ff !important;}
+
+/* Heading */
 .hero {text-align: center; font-size: 2.6rem; font-weight: 800; color: #fff;
        text-shadow: 0 0 8px #00d9ff, 0 0 24px #00d9ff; margin-bottom: .2rem;}
-.tagline {text-align: center; color: #8fb6d9; margin-bottom: 1.2rem;}
-.stTextInput input, .stTextArea textarea {background: #0d1424; color: #e8f1ff;
-       caret-color: #00d9ff; border: 1px solid #00d9ff66;}
-.stButton button, .stFormSubmitButton button, .stDownloadButton button {
-       background: #0d1424; color: #00d9ff; border: 2px solid #00d9ff; border-radius: 12px;
-       font-weight: 700; box-shadow: 0 0 12px #00d9ff88;}
+.tagline {text-align: center; color: #a9d4ff; margin-bottom: 1.2rem;}
+
+/* Tabs */
+button[data-baseweb="tab"] p {color: #a9bcd6 !important; font-weight: 700;}
+button[data-baseweb="tab"][aria-selected="true"] p {color: #00d9ff !important;}
+
+/* Inputs */
+[data-baseweb="input"], [data-baseweb="base-input"], [data-baseweb="textarea"] {
+       background: #111a2e !important; border-color: #00d9ff88 !important;}
+.stTextInput input, .stTextArea textarea {background: #111a2e !important;
+       color: #ffffff !important; -webkit-text-fill-color: #ffffff; caret-color: #00d9ff;}
+[data-testid="InputInstructions"] {color: #a9bcd6 !important;}
+
+/* Buttons */
+.stButton button, .stFormSubmitButton button, .stDownloadButton button,
+[data-testid="stFileUploader"] button {background: #0d1424 !important;
+       border: 2px solid #00d9ff !important; border-radius: 12px;
+       box-shadow: 0 0 12px #00d9ff88;}
+.stApp button:not([data-baseweb="tab"]), .stApp button:not([data-baseweb="tab"]) p {
+       color: #00e5ff !important; font-weight: 700;}
+
+/* File upload box */
+[data-testid="stFileUploaderDropzone"] {background: #111a2e !important;
+       border: 1px dashed #00d9ff;}
+[data-testid="stFileUploader"] span, [data-testid="stFileUploader"] small,
+[data-testid="stFileUploaderDropzone"] div {color: #f2f7ff !important;}
+
+/* Message boxes */
+[data-testid="stAlert"] {background: #14233f; border-radius: 12px;}
+
+/* Blinking result box */
 .result {--neon: #39ff14; border: 4px solid var(--neon); border-radius: 18px;
        padding: 28px 16px; margin: 18px 0; text-align: center; background: #05070d;
        animation: blink 1s ease-in-out infinite;}
 .result.spam {--neon: #ff073a;}
 .result .icon {font-size: 3.5rem;}
-.result .title {font-size: 2.4rem; font-weight: 900; color: var(--neon);
+.result .title {font-size: 2.4rem; font-weight: 900; color: var(--neon) !important;
        text-shadow: 0 0 10px var(--neon), 0 0 30px var(--neon);}
-.result .score {color: #e8f1ff; font-size: 1.1rem;}
+.result .score {color: #f2f7ff; font-size: 1.1rem;}
 @keyframes blink {
   0%, 100% {box-shadow: 0 0 10px var(--neon), 0 0 35px var(--neon),
             0 0 70px var(--neon), inset 0 0 25px var(--neon); opacity: 1;}
-  50% {box-shadow: 0 0 3px var(--neon); opacity: .45;}
+  50% {box-shadow: 0 0 3px var(--neon); opacity: .6;}
 }
 </style>
 """
