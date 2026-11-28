@@ -215,4 +215,4 @@ with history_tab:
     else:
         st.write("No emails checked yet.")
 
-streamlit run app.py --theme.base dark
+
