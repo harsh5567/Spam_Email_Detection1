@@ -1,0 +1,41 @@
+subject,email_text,label
+Invoice for October,"Hi, the October invoice is attached. Pay by the usual bank transfer when convenient.",not spam
+Invoice for October,Your invoice is overdue. Pay within 2 hours through this link or your service will be cut.,spam
+Password reset,You asked to reset your password in the office today. IT desk will help you at 4 PM.,not spam
+Password reset,Your password expires tonight. Click the link and enter your old password to keep access.,spam
+Your order,Your order of two notebooks was dispatched and should reach you on Monday.,not spam
+Your order,Your order is held. Send your card details to release the parcel today.,spam
+Account statement,Your monthly statement is ready in the banking app. No action is needed.,not spam
+Account statement,Unusual activity found. Confirm your PIN by replying to this mail immediately.,spam
+Free workshop,The college is holding a free coding workshop on Saturday. Register with your class teacher.,not spam
+Free workshop,Free trading workshop! Deposit a small joining fee now and double your money.,spam
+Interview schedule,Your interview is on Tuesday at 11 AM. Please bring a copy of your resume.,not spam
+Interview schedule,You are hired without interview. Pay the registration charge today to confirm your job.,spam
+Prize distribution,Prize distribution for the sports day will be in the main hall on Friday.,not spam
+Prize distribution,Your number won the prize draw. Share your bank details to receive the amount.,spam
+Scholarship update,The scholarship list is on the notice board. Visit the office with your ID card.,not spam
+Scholarship update,You are approved for a scholarship. Transfer the processing fee to claim it now.,spam
+Delivery attempt,The courier tried to deliver your book and will come again tomorrow morning.,not spam
+Delivery attempt,Delivery failed. Open this link and pay a redelivery charge before midnight.,spam
+Meeting link,Here is the link for our 3 PM project meeting. Join a few minutes early.,not spam
+Meeting link,Join this secret investment meeting link and earn daily income from home.,spam
+Offer letter,Please review the offer letter and let HR know if you have any questions.,not spam
+Offer letter,Special offer letter inside. Buy today and get a huge discount before it expires.,spam
+Refund status,Your refund for the cancelled ticket has been processed to the original payment method.,not spam
+Refund status,A refund is waiting. Enter your card number and OTP to collect it.,spam
+Library notice,Your library book is due next week. You can renew it at the counter.,not spam
+Library notice,Final notice: verify your library account now or pay a heavy penalty online.,spam
+Salary slip,Your salary slip for this month is available on the employee portal.,not spam
+Salary slip,Increase your salary instantly. Click here to start earning extra cash today.,spam
+Phone number change,I changed my phone number. Save the new one and call me after work.,not spam
+Phone number change,"Hi it is your boss, new number. Buy gift cards urgently and send me the codes.",spam
+Exam result,Exam results will be announced on Thursday. Check the college website.,not spam
+Exam result,See your leaked exam result early. Download this file and log in with your password.,spam
+Subscription,Your magazine subscription renews next month. You can cancel anytime from settings.,not spam
+Subscription,Your subscription was charged a large amount. Call this number now to get it back.,spam
+Photos,I have shared the photos from our trip. Tell me which ones you like.,not spam
+Photos,Someone shared private photos of you. Sign in here to view them.,spam
+Loan documents,The bank asked for two more documents for your home loan. Visit the branch this week.,not spam
+Loan documents,Instant loan with no documents. Pay the file charge and get cash today.,spam
+Team lunch,Lunch is on the company this Friday. Reply with your food choice.,not spam
+Team lunch,Reply now to win a free lunch voucher worth a huge amount.,spam
