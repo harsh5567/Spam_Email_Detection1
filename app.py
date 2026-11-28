@@ -71,6 +71,20 @@ button[data-baseweb="tab"][aria-selected="true"] p {color: #00d9ff !important;}
             0 0 70px var(--neon), inset 0 0 25px var(--neon); opacity: 1;}
   50% {box-shadow: 0 0 3px var(--neon); opacity: .6;}
 }
+/* Sidebar info box */
+[data-testid="stAlert"], [data-testid="stAlert"] > div,
+[data-testid="stAlertContainer"], [data-baseweb="notification"] {
+       background: #14233f !important; color: #f2f7ff !important;}
+[data-testid="stAlert"] p {color: #f2f7ff !important;}
+
+/* Help tooltip, popup menu and dialog */
+[data-baseweb="tooltip"], [data-baseweb="tooltip"] div,
+[data-testid="stTooltipContent"],
+[data-baseweb="popover"] > div, [data-baseweb="popover"] ul,
+[role="dialog"] {background: #111a2e !important; color: #f2f7ff !important;}
+[data-baseweb="tooltip"] p, [data-testid="stTooltipContent"] p,
+[data-baseweb="popover"] li, [data-baseweb="popover"] span,
+[role="dialog"] p, [role="dialog"] label, [role="dialog"] span {color: #f2f7ff !important;}
 </style>
 """
 
